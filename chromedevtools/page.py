@@ -2,12 +2,12 @@
 https://developer.chrome.com/devtools/docs/protocol/1.1/page
 
 Commands
-	Page.clearGeolocationOverride
-	Page.disable
-	Page.enable
-	Page.navigate
-	Page.reload
-	Page.setGeolocationOverride
+    Page.clearGeolocationOverride
+    Page.disable
+    Page.enable
+    Page.navigate
+    Page.reload
+    Page.setGeolocationOverride
 
 """
 

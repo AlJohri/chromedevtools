@@ -3,12 +3,19 @@ Chrome DevTools Python Wrapper
 
 "Remote Debugging Protocol 1.1": https://developer.chrome.com/devtools/docs/protocol/1.1/index
 
+http://www.chromium.org/developers/how-tos/run-chromium-with-flags
+
+Debug google-chrome on Linux
+```
+google-chrome --remote-debugging-port=9222
+```
+
 Debug Google Chrome.app on Mac OS X
 ```
 open /Applications/Google\ Chrome.app --args --remote-debugging-port=9222
 ```
 
-Debug chrome.exe on Mac OS X (untested)
+Debug chrome.exe on Windows (untested)
 ```
 C:\Program Files\ (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222
 ```

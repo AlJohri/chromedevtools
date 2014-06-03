@@ -21,6 +21,7 @@ class ReceiveData:
         while True:
             response = self.ws.recv()
             data = json.loads(response)
+            # import pdb; pdb.set_trace()
             if data.get('method') == None: 
                 break
         return data

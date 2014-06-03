@@ -2,16 +2,16 @@
 https://developer.chrome.com/devtools/docs/protocol/1.1/network
 
 Commands
-	Network.canClearBrowserCache
-	Network.canClearBrowserCookies
-	Network.clearBrowserCache
-	Network.clearBrowserCookies
-	Network.disable
-	Network.enable
-	Network.getResponseBody
-	Network.setCacheDisabled
-	Network.setExtraHTTPHeaders
-	Network.setUserAgentOverride
+    Network.canClearBrowserCache
+    Network.canClearBrowserCookies
+    Network.clearBrowserCache
+    Network.clearBrowserCookies
+    Network.disable
+    Network.enable
+    Network.getResponseBody
+    Network.setCacheDisabled
+    Network.setExtraHTTPHeaders
+    Network.setUserAgentOverride
 
 """
 

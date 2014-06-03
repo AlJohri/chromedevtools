@@ -2,8 +2,8 @@
 https://developer.chrome.com/devtools/docs/protocol/1.1/input
 
 Commands
-	Input.dispatchKeyEvent		https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchKeyEvent
-	Input.dispatchMouseEvent	https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchMouseEvent
+    Input.dispatchKeyEvent      https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchKeyEvent
+    Input.dispatchMouseEvent    https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchMouseEvent
 
 """
 

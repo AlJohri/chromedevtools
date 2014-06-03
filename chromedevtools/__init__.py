@@ -30,3 +30,12 @@ class ChromeDevTools(CreateCommand, ReceiveData):
         self.page = Page(self.ws)
         self.runtime = Runtime(self.ws)
         self.timeline = Timeline(self.ws)
+
+    def close(self):
+        self.ws.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close()

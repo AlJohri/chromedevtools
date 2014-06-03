@@ -2,8 +2,8 @@
 https://developer.chrome.com/devtools/docs/protocol/1.1/timeline
 
 Commands
-	Timeline.start 	https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-start
-	Timeline.stop	https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-stop
+    Timeline.start  https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-start
+    Timeline.stop   https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-stop
 """
 
 from .mixins import CreateCommand, ReceiveData
