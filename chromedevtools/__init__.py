@@ -1,8 +1,10 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
+import lxml.html
 from websocket import create_connection
 
 from .mixins import CreateCommand, ReceiveData
+from .javascript import JS_FIND_CLICKABLE_ELEMENTS, JS_FIND_SCROLLABLE_ELEMENTS
 from .console import Console
 from .debugger import Debugger
 from .dom import DOM
@@ -39,3 +41,34 @@ class ChromeDevTools(CreateCommand, ReceiveData):
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.close()
+
+    # High Level API
+
+    def evaluate(self, expression):
+        ret = self.runtime.evaluate(expression)
+        remote_object = ret['objectId']
+        object_properties = self.runtime.get_properties(remote_object)
+        if ret['className'] == "Array":
+            elements = list(filter(lambda prop: prop['name'].isdigit(), object_properties))
+            return elements
+        else:
+            return object_properties
+
+    def get_dom(self):
+        doc = self.dom.get_document()
+        root_id = doc['root']['nodeId']
+        html = self.dom.get_outer_html(root_id)['outerHTML']
+        dom = lxml.html.fromstring(html)
+        return dom
+
+    def get_clickable(self):
+        return self.evaluate(JS_FIND_CLICKABLE_ELEMENTS)
+
+    def get_scrollable(self):
+        return self.evaluate(JS_FIND_SCROLLABLE_ELEMENTS)
+
+    def click(self, x, y):
+        return self.input.dispatch_mouse_event(x, y)
+
+    def type(self, text):
+        return self.input.dispatch_key_event(text)
