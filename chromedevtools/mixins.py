@@ -10,7 +10,7 @@ class CreateCommand:
         command = {
             'id': 1,
             'method': method,
-            'params': dict((k, v) for k, v in params.iteritems() if v != None)
+            'params': dict((k, v) for k, v in params.items() if v != None)
         }
         return json.dumps(command)
 
