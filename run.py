@@ -1,4 +1,8 @@
-import sys
+import sys, six
+
+if six.PY2:
+    import __builtin__
+    input = getattr(__builtin__, 'raw_input')
 
 from chromedevtools import ChromeDevTools
 
@@ -20,3 +24,10 @@ with ChromeDevTools(sys.argv[1]) as cdt:
     
     print(ret1)
     print(ret2)
+
+    color = {'r': 255, 'g': 0, 'b': 0}
+    ret3 = cdt.dom.highlight_rect(10,10,100,100,color)
+
+    input("Alt-Tab to your Chrome Browser and see the highlighted rectangle.")
+
+    print(ret3)

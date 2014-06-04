@@ -70,13 +70,31 @@ class DOM(CreateCommand, ReceiveData):
         """
         raise NotImplementedError()
 
-    def highlight_rect(self):
+    def highlight_rect(self, x, y, width, height, color, outline_color=None):
         """
         Highlights given rectangle. Coordinates are absolute with respect to the main frame viewport.
 
+        Parameters
+            x ( integer )
+                X coordinate
+            y ( integer )
+                Y coordinate
+            width ( integer )
+                Rectangle width
+            height ( integer )
+                Rectangle height
+            color ( optional RGBA )
+                The highlight fill color (default: transparent).
+            outline_color ( optional RGBA )
+                The highlight outline color (default: transparent).
+
         https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightRect
         """
-        raise NotImplementedError()
+        command = self._create_command('DOM.highlightRect', x=x, y=y, width=width, height=height, color=color, outlineColor=outline_color)
+        print(command)
+        self.ws.send(command)
+        data = self._recv()
+        return data['result']
 
     def move_to(self):
         """
