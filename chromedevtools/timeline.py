@@ -6,6 +6,7 @@ Commands
     Timeline.stop   https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-stop
 """
 
+from __future__ import absolute_import, division, print_function, unicode_literals
 from .mixins import CreateCommand, ReceiveData
 
 class Timeline(CreateCommand, ReceiveData):
