@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chromedevtools.dom &mdash; Chrome DevTools Python Wrapper 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="Chrome DevTools Python Wrapper 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="chromedevtools" href="../chromedevtools.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Chrome DevTools Python Wrapper 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../chromedevtools.html" accesskey="U">chromedevtools</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for chromedevtools.dom</h1><div class="highlight"><pre>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">DOM</span>
+
+<span class="sd">This domain exposes DOM read/write operations. Each DOM Node is represented with its </span>
+<span class="sd">mirror object that has an id. This id can be used to get additional information on the Node, </span>
+<span class="sd">resolve it into the JavaScript object wrapper, etc. It is important that client receives DOM events </span>
+<span class="sd">only for the nodes that are known to the client. Backend keeps track of the nodes that were </span>
+<span class="sd">sent to the client and never sends the same node twice. It is client&#39;s responsibility to collect </span>
+<span class="sd">information about the nodes that were sent to the client.</span>
+
+<span class="sd">Note that iframe owner elements will return corresponding document elements as their child nodes.</span>
+
+<span class="sd">https://developer.chrome.com/devtools/docs/protocol/1.1/dom</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span><span class="p">,</span> <span class="n">unicode_literals</span>
+<span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">CreateCommand</span><span class="p">,</span> <span class="n">ReceiveData</span>
+
+<div class="viewcode-block" id="DOM"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM">[docs]</a><span class="k">class</span> <span class="nc">DOM</span><span class="p">(</span><span class="n">CreateCommand</span><span class="p">,</span> <span class="n">ReceiveData</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">websocket_connection</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket_connection</span>
+
+<div class="viewcode-block" id="DOM.get_attributes"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.get_attributes">[docs]</a>    <span class="k">def</span> <span class="nf">get_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns attributes for the specified node.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getAttributes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.get_document"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.get_document">[docs]</a>    <span class="k">def</span> <span class="nf">get_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the root DOM node to the caller.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getDocument</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_command</span><span class="p">(</span><span class="s">&#39;DOM.getDocument&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recv</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;result&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="DOM.get_outer_html"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.get_outer_html">[docs]</a>    <span class="k">def</span> <span class="nf">get_outer_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns node&#39;s HTML markup.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getOuterHTML</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">            nodeId ( NodeId )</span>
+<span class="sd">                Id of the node to get markup for.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_command</span><span class="p">(</span><span class="s">&#39;DOM.getOuterHTML&#39;</span><span class="p">,</span> <span class="n">nodeId</span><span class="o">=</span><span class="n">node_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_recv</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;result&#39;</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="DOM.hide_highlight"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.hide_highlight">[docs]</a>    <span class="k">def</span> <span class="nf">hide_highlight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-hideHighlight</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.highlight_node"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.highlight_node">[docs]</a>    <span class="k">def</span> <span class="nf">highlight_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Hides DOM node highlight.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.highlight_rect"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.highlight_rect">[docs]</a>    <span class="k">def</span> <span class="nf">highlight_rect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Highlights given rectangle. Coordinates are absolute with respect to the main frame viewport.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightRect</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.move_to"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.move_to">[docs]</a>    <span class="k">def</span> <span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Moves node into the new container, places it before the given anchor.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-moveTo</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.query_selector"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.query_selector">[docs]</a>    <span class="k">def</span> <span class="nf">query_selector</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes querySelector on a given node.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelector</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.query_selector_all"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.query_selector_all">[docs]</a>    <span class="k">def</span> <span class="nf">query_selector_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Executes querySelectorAll on a given node.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelectorAll</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.remove_attribute"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.remove_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">remove_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes attribute with given name from an element with given id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeAttribute</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.remove_node"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.remove_node">[docs]</a>    <span class="k">def</span> <span class="nf">remove_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Removes node with given id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.request_child_nodes"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.request_child_nodes">[docs]</a>    <span class="k">def</span> <span class="nf">request_child_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Requests that children of the node with given id are returned to the caller in form of </span>
+<span class="sd">        setChildNodes events where not only immediate children are retrieved, but all children </span>
+<span class="sd">        down to the specified depth.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestChildNodes</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.request_node"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.request_node">[docs]</a>    <span class="k">def</span> <span class="nf">request_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Requests that the node is sent to the caller given the JavaScript node object reference. All </span>
+<span class="sd">        nodes that form the path from the node to the root are also sent to the client as a series of </span>
+<span class="sd">        setChildNodes notifications.        </span>
+<span class="sd">        </span>
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.resolve_node"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.resolve_node">[docs]</a>    <span class="k">def</span> <span class="nf">resolve_node</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resolves JavaScript node object for given node id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-resolveNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.set_attribute_value"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.set_attribute_value">[docs]</a>    <span class="k">def</span> <span class="nf">set_attribute_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets attribute for an element with given id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributeValue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="DOM.set_attributes_as_text"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.set_attributes_as_text">[docs]</a>    <span class="k">def</span> <span class="nf">set_attributes_as_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets attributes on element with given id. This method is useful when user edits some existing </span>
+<span class="sd">        attribute value and types in several attribute name/value pairs.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributesAsText</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="DOM.set_node_name"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.set_node_name">[docs]</a>    <span class="k">def</span> <span class="nf">set_node_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets node name for a node with given id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeName</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="DOM.set_node_value"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.set_node_value">[docs]</a>    <span class="k">def</span> <span class="nf">set_node_value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets node value for a node with given id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeValue</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+</div>
+<div class="viewcode-block" id="DOM.set_outer_html"><a class="viewcode-back" href="../../chromedevtools.html#chromedevtools.dom.DOM.set_outer_html">[docs]</a>    <span class="k">def</span> <span class="nf">set_outer_html</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sets node HTML markup, returns new node id.</span>
+
+<span class="sd">        https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setOuterHTML</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Chrome DevTools Python Wrapper 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../chromedevtools.html" >chromedevtools</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Al Johri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>chromedevtools package &mdash; Chrome DevTools Python Wrapper 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Chrome DevTools Python Wrapper 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Chrome DevTools Python Wrapper 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="chromedevtools-package">
+<h1>chromedevtools package<a class="headerlink" href="#chromedevtools-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-chromedevtools.console">
+<span id="chromedevtools-console-module"></span><h2>chromedevtools.console module<a class="headerlink" href="#module-chromedevtools.console" title="Permalink to this headline">¶</a></h2>
+<p>Console</p>
+<p>Console domain defines methods and events for interaction with the JavaScript console. 
+Console collects messages created by means of the JavaScript Console API. One needs to 
+enable this domain using enable command in order to start receiving the console messages. 
+Browser collects messages issued while console domain is not enabled as well and reports 
+them using messageAdded notification upon enabling.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/console">https://developer.chrome.com/devtools/docs/protocol/1.1/console</a></p>
+<dl class="class">
+<dt id="chromedevtools.console.Console">
+<em class="property">class </em><tt class="descclassname">chromedevtools.console.</tt><tt class="descname">Console</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/console.html#Console"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.console.Console" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.console.Console.clear_messages">
+<tt class="descname">clear_messages</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/console.html#Console.clear_messages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.console.Console.clear_messages" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-clearMessages">https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-clearMessages</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.console.Console.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/console.html#Console.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.console.Console.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-disable">https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-disable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.console.Console.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/console.html#Console.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.console.Console.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-enable">https://developer.chrome.com/devtools/docs/protocol/1.1/console#command-enable</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.debugger">
+<span id="chromedevtools-debugger-module"></span><h2>chromedevtools.debugger module<a class="headerlink" href="#module-chromedevtools.debugger" title="Permalink to this headline">¶</a></h2>
+<p>Debugger</p>
+<p>Debugger domain exposes JavaScript debugging capabilities. It allows setting and removing 
+breakpoints, stepping through execution, exploring stack traces, etc.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger</a></p>
+<dl class="class">
+<dt id="chromedevtools.debugger.Debugger">
+<em class="property">class </em><tt class="descclassname">chromedevtools.debugger.</tt><tt class="descname">Debugger</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.can_set_script_source">
+<tt class="descname">can_set_script_source</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.can_set_script_source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.can_set_script_source" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-canSetScriptSource">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-canSetScriptSource</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.continue_to_location">
+<tt class="descname">continue_to_location</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.continue_to_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.continue_to_location" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-continueToLocation">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-continueToLocation</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-disable">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-disable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-enable">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-enable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.evaluate_on_call_frame">
+<tt class="descname">evaluate_on_call_frame</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.evaluate_on_call_frame"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.evaluate_on_call_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-evaluateOnCallFrame">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-evaluateOnCallFrame</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.get_script_source">
+<tt class="descname">get_script_source</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.get_script_source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.get_script_source" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-getScriptSource">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-getScriptSource</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.pause">
+<tt class="descname">pause</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.pause"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-pause">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-pause</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.remove_breakpoint">
+<tt class="descname">remove_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.remove_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.remove_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-removeBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-removeBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.search_in_context">
+<tt class="descname">search_in_context</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.search_in_context"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.search_in_context" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-searchInContent">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-searchInContent</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.set_breakpoint">
+<tt class="descname">set_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.set_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.set_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.set_breakpoint_by_url">
+<tt class="descname">set_breakpoint_by_url</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.set_breakpoint_by_url"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.set_breakpoint_by_url" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpointByUrl">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpointByUrl</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.set_breakpoints_active">
+<tt class="descname">set_breakpoints_active</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.set_breakpoints_active"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.set_breakpoints_active" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpointsActive">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setBreakpointsActive</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.set_pause_on_exceptions">
+<tt class="descname">set_pause_on_exceptions</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.set_pause_on_exceptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.set_pause_on_exceptions" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setPauseOnExceptions">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setPauseOnExceptions</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.set_script_source">
+<tt class="descname">set_script_source</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.set_script_source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.set_script_source" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setScriptSource">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-setScriptSource</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.step_into">
+<tt class="descname">step_into</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.step_into"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.step_into" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepInto">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepInto</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.step_out">
+<tt class="descname">step_out</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.step_out"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.step_out" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepOut">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepOut</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.debugger.Debugger.step_over">
+<tt class="descname">step_over</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/debugger.html#Debugger.step_over"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.debugger.Debugger.step_over" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepOver">https://developer.chrome.com/devtools/docs/protocol/1.1/debugger#command-stepOver</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.dom">
+<span id="chromedevtools-dom-module"></span><h2>chromedevtools.dom module<a class="headerlink" href="#module-chromedevtools.dom" title="Permalink to this headline">¶</a></h2>
+<p>DOM</p>
+<p>This domain exposes DOM read/write operations. Each DOM Node is represented with its 
+mirror object that has an id. This id can be used to get additional information on the Node, 
+resolve it into the JavaScript object wrapper, etc. It is important that client receives DOM events 
+only for the nodes that are known to the client. Backend keeps track of the nodes that were 
+sent to the client and never sends the same node twice. It is client&#8217;s responsibility to collect 
+information about the nodes that were sent to the client.</p>
+<p>Note that iframe owner elements will return corresponding document elements as their child nodes.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom">https://developer.chrome.com/devtools/docs/protocol/1.1/dom</a></p>
+<dl class="class">
+<dt id="chromedevtools.dom.DOM">
+<em class="property">class </em><tt class="descclassname">chromedevtools.dom.</tt><tt class="descname">DOM</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.get_attributes">
+<tt class="descname">get_attributes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.get_attributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.get_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns attributes for the specified node.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getAttributes">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getAttributes</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.get_document">
+<tt class="descname">get_document</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.get_document"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.get_document" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the root DOM node to the caller.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getDocument">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getDocument</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.get_outer_html">
+<tt class="descname">get_outer_html</tt><big>(</big><em>node_id</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.get_outer_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.get_outer_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns node&#8217;s HTML markup.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getOuterHTML">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-getOuterHTML</a></p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><dl class="first last docutils">
+<dt>nodeId ( NodeId )</dt>
+<dd>Id of the node to get markup for.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.hide_highlight">
+<tt class="descname">hide_highlight</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.hide_highlight"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.hide_highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-hideHighlight">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-hideHighlight</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.highlight_node">
+<tt class="descname">highlight_node</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.highlight_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.highlight_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hides DOM node highlight.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightNode">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightNode</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.highlight_rect">
+<tt class="descname">highlight_rect</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.highlight_rect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.highlight_rect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Highlights given rectangle. Coordinates are absolute with respect to the main frame viewport.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightRect">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-highlightRect</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.move_to">
+<tt class="descname">move_to</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.move_to"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.move_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Moves node into the new container, places it before the given anchor.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-moveTo">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-moveTo</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.query_selector">
+<tt class="descname">query_selector</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.query_selector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.query_selector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes querySelector on a given node.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelector">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelector</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.query_selector_all">
+<tt class="descname">query_selector_all</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.query_selector_all"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.query_selector_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Executes querySelectorAll on a given node.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelectorAll">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-querySelectorAll</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.remove_attribute">
+<tt class="descname">remove_attribute</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.remove_attribute"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.remove_attribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes attribute with given name from an element with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeAttribute">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeAttribute</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.remove_node">
+<tt class="descname">remove_node</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.remove_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.remove_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes node with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeNode">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-removeNode</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.request_child_nodes">
+<tt class="descname">request_child_nodes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.request_child_nodes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.request_child_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests that children of the node with given id are returned to the caller in form of 
+setChildNodes events where not only immediate children are retrieved, but all children 
+down to the specified depth.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestChildNodes">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestChildNodes</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.request_node">
+<tt class="descname">request_node</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.request_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.request_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests that the node is sent to the caller given the JavaScript node object reference. All 
+nodes that form the path from the node to the root are also sent to the client as a series of 
+setChildNodes notifications.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestNode">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-requestNode</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.resolve_node">
+<tt class="descname">resolve_node</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.resolve_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.resolve_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolves JavaScript node object for given node id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-resolveNode">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-resolveNode</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.set_attribute_value">
+<tt class="descname">set_attribute_value</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.set_attribute_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.set_attribute_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets attribute for an element with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributeValue">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributeValue</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.set_attributes_as_text">
+<tt class="descname">set_attributes_as_text</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.set_attributes_as_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.set_attributes_as_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets attributes on element with given id. This method is useful when user edits some existing 
+attribute value and types in several attribute name/value pairs.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributesAsText">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setAttributesAsText</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.set_node_name">
+<tt class="descname">set_node_name</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.set_node_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.set_node_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets node name for a node with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeName">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeName</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.set_node_value">
+<tt class="descname">set_node_value</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.set_node_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.set_node_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets node value for a node with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeValue">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setNodeValue</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.dom.DOM.set_outer_html">
+<tt class="descname">set_outer_html</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/dom.html#DOM.set_outer_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.dom.DOM.set_outer_html" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets node HTML markup, returns new node id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setOuterHTML">https://developer.chrome.com/devtools/docs/protocol/1.1/dom#command-setOuterHTML</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.domdebugger">
+<span id="chromedevtools-domdebugger-module"></span><h2>chromedevtools.domdebugger module<a class="headerlink" href="#module-chromedevtools.domdebugger" title="Permalink to this headline">¶</a></h2>
+<p>DOMDebugger</p>
+<p>DOM debugging allows setting breakpoints on particular DOM operations and events. 
+JavaScript execution will stop on these operations as if there was a regular breakpoint set.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger</a></p>
+<dl class="class">
+<dt id="chromedevtools.domdebugger.DOMDebugger">
+<em class="property">class </em><tt class="descclassname">chromedevtools.domdebugger.</tt><tt class="descname">DOMDebugger</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.remove_dom_breakpoint">
+<tt class="descname">remove_dom_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.remove_dom_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.remove_dom_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeDOMBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeDOMBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.remove_event_listener_breakpoint">
+<tt class="descname">remove_event_listener_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.remove_event_listener_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.remove_event_listener_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeEventListenerBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeEventListenerBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.remove_xhr_breakpoint">
+<tt class="descname">remove_xhr_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.remove_xhr_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.remove_xhr_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeXHRBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-removeXHRBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.set_dom_breakpoint">
+<tt class="descname">set_dom_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.set_dom_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.set_dom_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setDOMBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setDOMBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.set_event_listener_breakpoint">
+<tt class="descname">set_event_listener_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.set_event_listener_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.set_event_listener_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setEventListenerBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setEventListenerBreakpoint</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.domdebugger.DOMDebugger.set_xhr_breakpoint">
+<tt class="descname">set_xhr_breakpoint</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/domdebugger.html#DOMDebugger.set_xhr_breakpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.domdebugger.DOMDebugger.set_xhr_breakpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setXHRBreakpoint">https://developer.chrome.com/devtools/docs/protocol/1.1/domdebugger#command-setXHRBreakpoint</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.input">
+<span id="chromedevtools-input-module"></span><h2>chromedevtools.input module<a class="headerlink" href="#module-chromedevtools.input" title="Permalink to this headline">¶</a></h2>
+<p>Input</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/input">https://developer.chrome.com/devtools/docs/protocol/1.1/input</a></p>
+<dl class="class">
+<dt id="chromedevtools.input.Input">
+<em class="property">class </em><tt class="descclassname">chromedevtools.input.</tt><tt class="descname">Input</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/input.html#Input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.input.Input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.input.Input.dispatch_key_event">
+<tt class="descname">dispatch_key_event</tt><big>(</big><em>text=None</em>, <em>type=u'char'</em>, <em>modifiers=None</em>, <em>timestamp=None</em>, <em>unmodified_text=None</em>, <em>key_identifier=None</em>, <em>windows_virtual_key_code=None</em>, <em>native_virtual_key_code=None</em>, <em>mac_char_code=None</em>, <em>auto_repeat=None</em>, <em>is_keypad=None</em>, <em>is_system_key=None</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/input.html#Input.dispatch_key_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.input.Input.dispatch_key_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatches a key event to the page.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchKeyEvent">https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchKeyEvent</a></p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><dl class="first last docutils">
+<dt>type ( enumerated string [ &#8220;char&#8221; , &#8220;keyDown&#8221; , &#8220;keyUp&#8221; , &#8220;rawKeyDown&#8221; ] )</dt>
+<dd>Type of the key event.</dd>
+<dt>modifiers ( optional integer )</dt>
+<dd>Bit field representing pressed modifier keys. Alt=1, Ctrl=2, Meta/Command=4, Shift=8 (default: 0).</dd>
+<dt>timestamp ( optional number )</dt>
+<dd>Time at which the event occurred. Measured in UTC time in seconds since January 1, 1970 (default: current time).</dd>
+<dt>text ( optional string )</dt>
+<dd>Text as generated by processing a virtual key code with a keyboard layout. Not needed for for keyUp and rawKeyDown events (default: &#8220;&#8221;)</dd>
+<dt>unmodified_text ( optional string )</dt>
+<dd>Text that would have been generated by the keyboard if no modifiers were pressed (except for shift). Useful for shortcut (accelerator) key handling (default: &#8220;&#8221;).</dd>
+<dt>key_identifier ( optional string )</dt>
+<dd>Unique key identifier (e.g., &#8216;U+0041&#8217;) (default: &#8220;&#8221;).</dd>
+<dt>windows_virtual_key_code ( optional integer )</dt>
+<dd>Windows virtual key code (default: 0).</dd>
+<dt>native_virtual_key_code ( optional integer )</dt>
+<dd>Native virtual key code (default: 0).</dd>
+<dt>mac_char_code ( optional integer )</dt>
+<dd>Mac character code (default: 0).</dd>
+<dt>auto_repeat ( optional boolean )</dt>
+<dd>Whether the event was generated from auto repeat (default: false).</dd>
+<dt>is_keypad ( optional boolean )</dt>
+<dd>Whether the event was generated from the keypad (default: false).</dd>
+<dt>is_system_key ( optional boolean )</dt>
+<dd>Whether the event was a system key event (default: false).</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.input.Input.dispatch_mouse_event">
+<tt class="descname">dispatch_mouse_event</tt><big>(</big><em>x</em>, <em>y</em>, <em>type=u'mousePressed'</em>, <em>modifiers=None</em>, <em>timestamp=None</em>, <em>button=None</em>, <em>click_count=None</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/input.html#Input.dispatch_mouse_event"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.input.Input.dispatch_mouse_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dispatches a mouse event to the page.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchMouseEvent">https://developer.chrome.com/devtools/docs/protocol/1.1/input#command-dispatchMouseEvent</a></p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><dl class="first last docutils">
+<dt>type ( enumerated string [ &#8220;mouseMoved&#8221; , &#8220;mousePressed&#8221; , &#8220;mouseReleased&#8221; ] )</dt>
+<dd>Type of the mouse event.</dd>
+<dt>x ( integer )</dt>
+<dd>X coordinate of the event relative to the main frame&#8217;s viewport.</dd>
+<dt>y ( integer )</dt>
+<dd>Y coordinate of the event relative to the main frame&#8217;s viewport. 0 refers to the top of the viewport and Y increases as it proceeds towards the bottom of the viewport.</dd>
+<dt>modifiers ( optional integer )</dt>
+<dd>Bit field representing pressed modifier keys. Alt=1, Ctrl=2, Meta/Command=4, Shift=8 (default: 0).</dd>
+<dt>timestamp ( optional number )</dt>
+<dd>Time at which the event occurred. Measured in UTC time in seconds since January 1, 1970 (default: current time).</dd>
+<dt>button ( optional enumerated string [ &#8220;left&#8221; , &#8220;middle&#8221; , &#8220;none&#8221; , &#8220;right&#8221; ] )</dt>
+<dd>Mouse button (default: &#8220;none&#8221;).</dd>
+<dt>click_count ( optional integer )</dt>
+<dd>Number of times the mouse button was clicked (default: 0).</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.javascript">
+<span id="chromedevtools-javascript-module"></span><h2>chromedevtools.javascript module<a class="headerlink" href="#module-chromedevtools.javascript" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-chromedevtools.mixins">
+<span id="chromedevtools-mixins-module"></span><h2>chromedevtools.mixins module<a class="headerlink" href="#module-chromedevtools.mixins" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chromedevtools.mixins.CreateCommand">
+<em class="property">class </em><tt class="descclassname">chromedevtools.mixins.</tt><tt class="descname">CreateCommand</tt><a class="reference internal" href="_modules/chromedevtools/mixins.html#CreateCommand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.mixins.CreateCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert method name and params into the dict (json) to be sent via websockets</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="chromedevtools.mixins.ReceiveData">
+<em class="property">class </em><tt class="descclassname">chromedevtools.mixins.</tt><tt class="descname">ReceiveData</tt><a class="reference internal" href="_modules/chromedevtools/mixins.html#ReceiveData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.mixins.ReceiveData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.network">
+<span id="chromedevtools-network-module"></span><h2>chromedevtools.network module<a class="headerlink" href="#module-chromedevtools.network" title="Permalink to this headline">¶</a></h2>
+<p>Network</p>
+<p>Network domain allows tracking network activities of the page. It exposes information about 
+http, file, data and other requests and responses, their headers, bodies, timing, etc.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network">https://developer.chrome.com/devtools/docs/protocol/1.1/network</a></p>
+<dl class="class">
+<dt id="chromedevtools.network.Network">
+<em class="property">class </em><tt class="descclassname">chromedevtools.network.</tt><tt class="descname">Network</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.network.Network.can_clear_browser_cache">
+<tt class="descname">can_clear_browser_cache</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.can_clear_browser_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.can_clear_browser_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-canClearBrowserCache">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-canClearBrowserCache</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.can_clear_browser_cookies">
+<tt class="descname">can_clear_browser_cookies</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.can_clear_browser_cookies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.can_clear_browser_cookies" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-canClearBrowserCookies">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-canClearBrowserCookies</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.clear_browser_cache">
+<tt class="descname">clear_browser_cache</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.clear_browser_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.clear_browser_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-clearBrowserCache">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-clearBrowserCache</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.clear_browser_cookies">
+<tt class="descname">clear_browser_cookies</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.clear_browser_cookies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.clear_browser_cookies" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-clearBrowserCookies">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-clearBrowserCookies</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-disable">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-disable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-enable">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-enable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.get_response_body">
+<tt class="descname">get_response_body</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.get_response_body"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.get_response_body" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-getResponseBody">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-getResponseBody</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.set_cache_disabled">
+<tt class="descname">set_cache_disabled</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.set_cache_disabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.set_cache_disabled" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setCacheDisabled">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setCacheDisabled</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.set_extra_http_headers">
+<tt class="descname">set_extra_http_headers</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.set_extra_http_headers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.set_extra_http_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setExtraHTTPHeaders">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setExtraHTTPHeaders</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.network.Network.set_user_agent_override">
+<tt class="descname">set_user_agent_override</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/network.html#Network.set_user_agent_override"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.network.Network.set_user_agent_override" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setUserAgentOverride">https://developer.chrome.com/devtools/docs/protocol/1.1/network#command-setUserAgentOverride</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.page">
+<span id="chromedevtools-page-module"></span><h2>chromedevtools.page module<a class="headerlink" href="#module-chromedevtools.page" title="Permalink to this headline">¶</a></h2>
+<p>Page</p>
+<p>Actions and events related to the inspected page belong to the page domain.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page">https://developer.chrome.com/devtools/docs/protocol/1.1/page</a></p>
+<dl class="class">
+<dt id="chromedevtools.page.Page">
+<em class="property">class </em><tt class="descclassname">chromedevtools.page.</tt><tt class="descname">Page</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.page.Page.clear_geolocation_override">
+<tt class="descname">clear_geolocation_override</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.clear_geolocation_override"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.clear_geolocation_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears the overriden Geolocation Position and Error.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-clearGeolocationOverride">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-clearGeolocationOverride</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.page.Page.disable">
+<tt class="descname">disable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.disable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.disable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables page domain notifications.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-disable">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-disable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.page.Page.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables page domain notifications.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-enable">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-enable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.page.Page.navigate">
+<tt class="descname">navigate</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.navigate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.navigate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Navigates current page to the given URL.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-navigate">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-navigate</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.page.Page.relaod">
+<tt class="descname">relaod</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.relaod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.relaod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reloads given page optionally ignoring the cache.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-reload">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-reload</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.page.Page.set_geolocation_override">
+<tt class="descname">set_geolocation_override</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/page.html#Page.set_geolocation_override"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.page.Page.set_geolocation_override" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overrides the Geolocation Position or Error.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-setGeolocationOverride">https://developer.chrome.com/devtools/docs/protocol/1.1/page#command-setGeolocationOverride</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.runtime">
+<span id="chromedevtools-runtime-module"></span><h2>chromedevtools.runtime module<a class="headerlink" href="#module-chromedevtools.runtime" title="Permalink to this headline">¶</a></h2>
+<p>Runtime</p>
+<p>Runtime domain exposes JavaScript runtime by means of remote evaluation and mirror 
+objects. Evaluation results are returned as mirror object that expose object type, string 
+representation and unique identifier that can be used for further object reference. Original 
+objects are maintained in memory unless they are either explicitly released or are released 
+along with the other objects in their object group.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime</a></p>
+<dl class="class">
+<dt id="chromedevtools.runtime.Runtime">
+<em class="property">class </em><tt class="descclassname">chromedevtools.runtime.</tt><tt class="descname">Runtime</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.call_function_on">
+<tt class="descname">call_function_on</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.call_function_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.call_function_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calls function with given declaration on the given object. Object group of the result is inherited 
+from the target object.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-callFunctionOn">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-callFunctionOn</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.enable">
+<tt class="descname">enable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.enable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables reporting of execution contexts creation by means of executionContextCreated 
+event. When the reporting gets enabled the event will be sent immediately for each existing 
+execution context.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-enable">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-enable</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.evaluate">
+<tt class="descname">evaluate</tt><big>(</big><em>expression</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluates expression on global object.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-getProperties">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-getProperties</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.get_properties">
+<tt class="descname">get_properties</tt><big>(</big><em>object_id</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.get_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns properties of a given object. Object group of the result is inherited from the target 
+object.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-getProperties">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-getProperties</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.release_object">
+<tt class="descname">release_object</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.release_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.release_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases remote object with given id.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-releaseObject">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-releaseObject</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.runtime.Runtime.release_object_group">
+<tt class="descname">release_object_group</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/runtime.html#Runtime.release_object_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.runtime.Runtime.release_object_group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Releases all remote objects that belong to a given group.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-releaseObjectGroup">https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-releaseObjectGroup</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools.timeline">
+<span id="chromedevtools-timeline-module"></span><h2>chromedevtools.timeline module<a class="headerlink" href="#module-chromedevtools.timeline" title="Permalink to this headline">¶</a></h2>
+<p>Timeline</p>
+<p>Timeline provides its clients with instrumentation records that are generated during the page 
+runtime. Timeline instrumentation can be started and stopped using corresponding 
+commands. While timeline is started, it is generating timeline event records.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/timeline">https://developer.chrome.com/devtools/docs/protocol/1.1/timeline</a></p>
+<dl class="class">
+<dt id="chromedevtools.timeline.Timeline">
+<em class="property">class </em><tt class="descclassname">chromedevtools.timeline.</tt><tt class="descname">Timeline</tt><big>(</big><em>websocket_connection</em><big>)</big><a class="reference internal" href="_modules/chromedevtools/timeline.html#Timeline"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.timeline.Timeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<dl class="method">
+<dt id="chromedevtools.timeline.Timeline.start">
+<tt class="descname">start</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/timeline.html#Timeline.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.timeline.Timeline.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts capturing instrumentation events.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-start">https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-start</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.timeline.Timeline.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools/timeline.html#Timeline.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.timeline.Timeline.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops capturing instrumentation events.</p>
+<p><a class="reference external" href="https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-stop">https://developer.chrome.com/devtools/docs/protocol/1.1/timeline#command-stop</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-chromedevtools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-chromedevtools" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="chromedevtools.ChromeDevTools">
+<em class="property">class </em><tt class="descclassname">chromedevtools.</tt><tt class="descname">ChromeDevTools</tt><big>(</big><em>websocket_url</em><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#chromedevtools.mixins.CreateCommand" title="chromedevtools.mixins.CreateCommand"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.CreateCommand</span></tt></a>, <a class="reference internal" href="#chromedevtools.mixins.ReceiveData" title="chromedevtools.mixins.ReceiveData"><tt class="xref py py-class docutils literal"><span class="pre">chromedevtools.mixins.ReceiveData</span></tt></a></p>
+<p>Docstring for class ChromeDevTools.</p>
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.click">
+<tt class="descname">click</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.close">
+<tt class="descname">close</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.close" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.evaluate">
+<tt class="descname">evaluate</tt><big>(</big><em>expression</em><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.evaluate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.get_clickable">
+<tt class="descname">get_clickable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.get_clickable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.get_clickable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.get_dom">
+<tt class="descname">get_dom</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.get_dom"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.get_dom" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.get_scrollable">
+<tt class="descname">get_scrollable</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.get_scrollable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.get_scrollable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="chromedevtools.ChromeDevTools.type">
+<tt class="descname">type</tt><big>(</big><em>text</em><big>)</big><a class="reference internal" href="_modules/chromedevtools.html#ChromeDevTools.type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#chromedevtools.ChromeDevTools.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">chromedevtools package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.console">chromedevtools.console module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.debugger">chromedevtools.debugger module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.dom">chromedevtools.dom module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.domdebugger">chromedevtools.domdebugger module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.input">chromedevtools.input module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.javascript">chromedevtools.javascript module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.mixins">chromedevtools.mixins module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.network">chromedevtools.network module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.page">chromedevtools.page module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.runtime">chromedevtools.runtime module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools.timeline">chromedevtools.timeline module</a></li>
+<li><a class="reference internal" href="#module-chromedevtools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chromedevtools.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">Chrome DevTools Python Wrapper 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Al Johri.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

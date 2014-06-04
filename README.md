@@ -27,3 +27,9 @@ APP=bbc.mobile.sport.ww
 PORT=`adb -s $EMULATOR shell ps | grep $APP | awk '{print $2}'`
 adb -s $EMULATOR forward tcp:9222 localabstract:webview_devtools_remote_$PORT
 ```
+
+Developer
+---------
+```
+sphinx-apidoc -o doc chromedevtools
+```

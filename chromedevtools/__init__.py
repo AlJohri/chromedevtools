@@ -16,6 +16,7 @@ from .runtime import Runtime
 from .timeline import Timeline
 
 class ChromeDevTools(CreateCommand, ReceiveData):
+    """Docstring for class ChromeDevTools."""
 
     def __init__(self, websocket_url):
         """
