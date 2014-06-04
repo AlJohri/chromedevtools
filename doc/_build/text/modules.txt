@@ -1,0 +1,31 @@
+
+chromedevtools
+**************
+
+* chromedevtools package
+
+  * Submodules
+
+  * chromedevtools.console module
+
+  * chromedevtools.debugger module
+
+  * chromedevtools.dom module
+
+  * chromedevtools.domdebugger module
+
+  * chromedevtools.input module
+
+  * chromedevtools.javascript module
+
+  * chromedevtools.mixins module
+
+  * chromedevtools.network module
+
+  * chromedevtools.page module
+
+  * chromedevtools.runtime module
+
+  * chromedevtools.timeline module
+
+  * Module contents

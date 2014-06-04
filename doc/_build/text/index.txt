@@ -1,0 +1,19 @@
+
+Welcome to Chrome DevTools Python Wrapper's documentation!
+**********************************************************
+
+Contents:
+
+class class chromedevtools.ChromeDevTools(websocket_url)
+
+   Docstring for class ChromeDevTools.
+
+
+Indices and tables
+******************
+
+* *Index*
+
+* *Module Index*
+
+* *Search Page*
