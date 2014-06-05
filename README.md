@@ -24,8 +24,8 @@ Debug Android Webview within Emulator on Mac OS X or Linux
 ```
 EMULATOR=emulator-5556
 APP=bbc.mobile.sport.ww
-PORT=`adb -s $EMULATOR shell ps | grep $APP | awk '{print $2}'`
-adb -s $EMULATOR forward tcp:9222 localabstract:webview_devtools_remote_$PORT
+PID=`adb -s $EMULATOR shell ps | grep $APP | awk '{print $2}'`
+adb -s $EMULATOR forward tcp:9222 localabstract:webview_devtools_remote_$PID
 ```
 
 Developer
