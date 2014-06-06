@@ -37,13 +37,13 @@ class Runtime(CreateCommand, ReceiveData):
         """
         raise NotImplementedError()
 
-    def evaluate(self, expression):
+    def evaluate(self, expression, return_by_value=False):
         """
         Evaluates expression on global object.
 
-        https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-getProperties
+        https://developer.chrome.com/devtools/docs/protocol/1.1/runtime#command-evaluate
         """
-        command = self._create_command('Runtime.evaluate', expression=expression)
+        command = self._create_command('Runtime.evaluate', expression=expression, returnByValue=return_by_value)
         self.ws.send(command)
         data = self._recv()
         return data['result']['result']

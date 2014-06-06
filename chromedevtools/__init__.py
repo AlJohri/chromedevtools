@@ -5,6 +5,7 @@ from websocket import create_connection
 
 from .mixins import CreateCommand, ReceiveData
 from .javascript import JS_FIND_CLICKABLE_ELEMENTS, JS_FIND_SCROLLABLE_ELEMENTS
+from .javascript import IS_ELEMENT_CLICKABLE, IS_ELEMENT_SCROLLABLE
 from .console import Console
 from .debugger import Debugger
 from .dom import DOM
@@ -45,15 +46,18 @@ class ChromeDevTools(CreateCommand, ReceiveData):
 
     # High Level API
 
-    def evaluate(self, expression):
-        ret = self.runtime.evaluate(expression)
-        remote_object = ret['objectId']
-        object_properties = self.runtime.get_properties(remote_object)
-        if ret['className'] == "Array":
-            elements = list(filter(lambda prop: prop['name'].isdigit(), object_properties))
-            return elements
-        else:
-            return object_properties
+    def evaluate(self, expression, return_by_value=False):
+        ret = self.runtime.evaluate(expression, return_by_value)
+        if ret.get('value') != None: # return object is small enough to returnByValue
+            return ret['value']
+        elif ret.get('objectId') != None: # return object is a reference to a remote object
+            remote_object = ret['objectId']
+            object_properties = self.runtime.get_properties(remote_object)
+            if ret['className'] == "Array":
+                elements = list(filter(lambda prop: prop['name'].isdigit(), object_properties))
+                return elements
+            else:
+                return object_properties
 
     def get_dom(self):
         doc = self.dom.get_document()
@@ -73,3 +77,9 @@ class ChromeDevTools(CreateCommand, ReceiveData):
 
     def type(self, text):
         return self.input.dispatch_key_event(text)
+
+    def check_clickable(self, xpath):
+        return self.evaluate(IS_ELEMENT_CLICKABLE(xpath), True)
+
+    def check_scrollable(self, xpath):
+        return self.evaluate(IS_ELEMENT_SCROLLABLE(xpath), True)
