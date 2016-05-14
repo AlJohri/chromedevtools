@@ -34,9 +34,13 @@ adb -s $EMULATOR forward tcp:9222 localabstract:webview_devtools_remote_$PID
 
 Navigate to http://localhost:9222/json and choose a webSocketDebuggerUrl.
 
+## Setup
+
+`pip install -r requirements.txt`
+
 ## Run
 
-python run.py `<websocketurl>`
+`python run.py <websocketurl>`
 
 Developer
 ---------
