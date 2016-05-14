@@ -25,13 +25,13 @@ for(var i=0; i < els.length; i++) {
 ret    
 """
 
-IS_ELEMENT_CLICKABLE = lambda (xpath) : """
+IS_ELEMENT_CLICKABLE = lambda xpath : """
     el = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     if (el.href != null || el.onclick === "function") true;
     else false;
 """ % xpath
 
-IS_ELEMENT_SCROLLABLE = lambda (xpath) : """
+IS_ELEMENT_SCROLLABLE = lambda xpath : """
     el = document.evaluate("%s", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     if  ((el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth) && 
          (el.style.overflow != "hidden") 

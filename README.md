@@ -3,6 +3,8 @@ Chrome DevTools Python Wrapper
 
 "Remote Debugging Protocol 1.1": https://developer.chrome.com/devtools/docs/protocol/1.1/index
 
+## Open Google Chrome with Remote Debugging Port
+
 http://www.chromium.org/developers/how-tos/run-chromium-with-flags
 
 Debug google-chrome on Linux
@@ -27,6 +29,14 @@ APP=bbc.mobile.sport.ww
 PID=`adb -s $EMULATOR shell ps | grep $APP | awk '{print $2}'`
 adb -s $EMULATOR forward tcp:9222 localabstract:webview_devtools_remote_$PID
 ```
+
+## Get Websocket URL
+
+Navigate to http://localhost:9222/json and choose a webSocketDebuggerUrl.
+
+## Run
+
+python run.py `<websocketurl>`
 
 Developer
 ---------

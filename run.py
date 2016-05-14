@@ -14,7 +14,7 @@ with ChromeDevTools(sys.argv[1]) as cdt:
     tree = lxml.etree.ElementTree(dom)
     for e in dom.iter():
         xpath = tree.getpath(e)
-        print xpath, cdt.check_clickable(xpath), cdt.check_scrollable(xpath)
+        print(xpath, cdt.check_clickable(xpath), cdt.check_scrollable(xpath))
 
     els1 = cdt.get_clickable()
     els2 = cdt.get_scrollable()
