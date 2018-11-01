@@ -2,16 +2,16 @@ import sys
 from distutils.core import setup
 
 REQUIRES = [
-    'cssselect==0.9.1',        
-    'lxml==3.3.4',        
-    'requests==2.3.0',
-    'six==1.6.1',
+    'cssselect',
+    'lxml',        
+    'requests',
+    'six',
 ]
 
 if sys.version_info >= (3,):
-    REQUIRES.append('websocket-client==0.15.0')
+    REQUIRES.append('websocket-client')
 elif sys.version_info >= (2,6):
-    REQUIRES.append('websocket-client-py3==0.15.0')
+    REQUIRES.append('websocket-client-py3')
 
 setup(
     name='chromedevtools',
